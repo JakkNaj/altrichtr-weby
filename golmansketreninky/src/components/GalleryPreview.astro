@@ -1,0 +1,4 @@
+---
+import { gallery } from '../data/site';
+---
+<section id="galerie" class="gallery section container"><div class="section-heading section-heading--split"><h2>Z GALERIE <i>//</i></h2><a href="#registrace">Zobrazit celou galerii →</a></div><div class="gallery-grid">{gallery.map(([image, alt], index) => <figure class={`gallery-item gallery-item--${index + 1}`}><img src={image} alt={alt} loading="lazy" /></figure>)}</div></section>

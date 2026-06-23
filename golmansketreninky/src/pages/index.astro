@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import UpcomingEvents from '../components/UpcomingEvents.astro';
+import PreparationCards from '../components/PreparationCards.astro';
+import WhyTrainWithUs from '../components/WhyTrainWithUs.astro';
+import TrainingTypes from '../components/TrainingTypes.astro';
+import RegistrationSteps from '../components/RegistrationSteps.astro';
+import GalleryPreview from '../components/GalleryPreview.astro';
+import FAQ from '../components/FAQ.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+
+const allEvents = await getCollection('events');
+const events = allEvents.sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+const featuredEvent = events.find((event) => event.data.featured) ?? events[0];
+---
+<BaseLayout title="Altrichter Goalie Academy | Gólmanské tréninky" description="Specializované hokejové tréninky pro gólmany a gólmanky v Říčanech.">
+  <Header />
+  <main><Hero event={featuredEvent} /><UpcomingEvents events={events} /><PreparationCards /><WhyTrainWithUs /><TrainingTypes /><RegistrationSteps /><GalleryPreview /><FAQ /><FinalCTA /></main>
+  <Footer />
+</BaseLayout>

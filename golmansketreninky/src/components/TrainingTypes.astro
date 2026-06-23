@@ -1,0 +1,4 @@
+---
+import { trainingTypes } from '../data/site';
+---
+<section class="training-types"><div class="container training-types__inner"><div><p class="eyebrow">CO SI VYBRAT</p><h2>TYPY<br />TRÉNINKŮ <i>//</i></h2></div><div class="types-list">{trainingTypes.map(([title, text], index) => <article><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>

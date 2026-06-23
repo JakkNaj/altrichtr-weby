@@ -1,0 +1,4 @@
+---
+import { faq } from '../data/site';
+---
+<section class="faq section container"><div><p class="eyebrow">PRAKTICKY</p><h2>ČASTÉ DOTAZY <i>//</i></h2></div><div class="faq-list">{faq.map(([question, answer]) => <details><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></section>

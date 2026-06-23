@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Návrhy webového designu pro klientské schválení." />
+    <title>Webové návrhy | Altrichter</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;600&display=swap');
+      :root { --ink: #071320; --blue: #049de0; --red: #e71d24; }
+      * { box-sizing: border-box; }
+      body { align-items: center; background: radial-gradient(circle at 85% 12%, #13395d 0, transparent 28%), var(--ink); color: #fff; display: flex; font-family: 'DM Sans', Arial, sans-serif; margin: 0; min-height: 100vh; padding: 32px; }
+      main { margin: auto; max-width: 1080px; width: 100%; }
+      p { color: #b5c5d1; max-width: 530px; }
+      .eyebrow, h1, h2, a { font-family: 'Barlow Condensed', Impact, sans-serif; text-transform: uppercase; }
+      .eyebrow { color: var(--blue); font-size: 15px; font-weight: 800; letter-spacing: .12em; }
+      h1 { font-size: clamp(50px, 8vw, 100px); line-height: .9; margin: 12px 0 20px; }
+      h1 em { color: var(--red); font-style: normal; }
+      .designs { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); margin-top: 54px; }
+      a { background: #fff; color: var(--ink); display: block; font-size: 30px; font-weight: 800; min-height: 210px; padding: 30px; text-decoration: none; transition: transform .2s, background .2s; }
+      a:hover { background: var(--blue); color: #fff; transform: translateY(-5px); }
+      a:nth-child(2) { background: var(--red); color: #fff; }
+      small { display: block; font-family: 'DM Sans', Arial, sans-serif; font-size: 14px; font-weight: 400; margin-top: 55px; text-transform: none; }
+      .arrow { float: right; font-family: Arial, sans-serif; font-size: 38px; }
+      @media (max-width: 640px) { .designs { grid-template-columns: 1fr; margin-top: 35px; } a { min-height: 155px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">Klientský náhled</div>
+      <h1>Webové návrhy<br /><em>připravené k prohlédnutí.</em></h1>
+      <p>Vyberte projekt, který chcete otevřít. Každý odkaz vede na samostatný statický návrh designu.</p>
+      <section class="designs" aria-label="Návrhy webů">
+        <a href="./golmansketreninky/"><span>Gólmanské<br />tréninky</span><small>Altrichter Goalie Academy <b class="arrow">→</b></small></a>
+        <a href="./hcricany/"><span>HC Říčany</span><small>Klubový webový návrh <b class="arrow">→</b></small></a>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+---
+interface Partner { name: string; logo: string; image?: string; website: string; tier: 'generalni' | 'hlavni' | 'partner'; }
+interface Props { partners: Partner[]; }
+const { partners } = Astro.props;
+---
+<section class="partners"><div class="container"><p class="eyebrow">Děkujeme, že hrajete s námi</p><div class="partners__line"><h2 class="display">Partneři<br/><span>klubu</span></h2><div class="partners__grid">{partners.map((partner) => <a href={partner.website} class:list={['partner', { 'partner--color': partner.name === 'Město Říčany' }]} target="_blank" rel="noreferrer" aria-label={partner.name}>{partner.image ? <img src={partner.image} alt={partner.name} loading="lazy" /> : <span>{partner.logo}</span>}<small>{partner.tier}</small></a>)}</div></div></div></section>
+<style>
+  .partners { padding: clamp(4rem, 7vw, 6.5rem) 0; background: var(--ink-soft); } .partners__line { display: grid; grid-template-columns: .8fr 2.2fr; gap: 2rem; align-items: end; } h2 { margin: 0; font-size: clamp(2.8rem, 5vw, 4.5rem); } h2 span { color: var(--accent); }
+  .partners__grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); } .partner { min-height: 120px; display: flex; flex-direction: column; justify-content: center; gap: .6rem; padding: 1rem; border-right: 1px solid var(--line); text-align: center; } .partner:last-child { border: 0; } .partner span { font-family: var(--display); font-size: clamp(1.15rem, 2vw, 1.7rem); letter-spacing: .04em; } .partner img { width: 100%; max-width: 110px; height: 48px; margin: 0 auto; object-fit: contain; filter: grayscale(1) brightness(1.7); transition: filter 180ms ease; } .partner--color img, .partner:hover img { filter: none; } .partner small { color: #91abb0; font-size: .58rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+  @media (max-width: 800px) { .partners__line { grid-template-columns: 1fr; } } @media (max-width: 530px) { .partners__grid { grid-template-columns: repeat(2, 1fr); } .partner:nth-child(2) { border-right: 0; } .partner { border-bottom: 1px solid var(--line); } }
+</style>

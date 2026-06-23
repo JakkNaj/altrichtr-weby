@@ -1,0 +1,19 @@
+---
+import Badge from '../ui/Badge.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+interface Event { title: string; date: Date; location: string; type: string; link: string; }
+interface Props { events: Event[]; }
+const { events } = Astro.props;
+const weekday = (date: Date) => new Intl.DateTimeFormat('cs-CZ', { weekday: 'short' }).format(date).replace('.', '').toUpperCase();
+const day = (date: Date) => new Intl.DateTimeFormat('cs-CZ', { day: '2-digit', month: '2-digit' }).format(date);
+const time = (date: Date) => new Intl.DateTimeFormat('cs-CZ', { hour: '2-digit', minute: '2-digit' }).format(date);
+---
+<section id="rozpis" class="section section--steel"><div class="container"><SectionHeading title="Na ledě tento týden" eyebrow="Rozpis tréninků" href="#kontakt" linkLabel="Celý rozpis" />
+<div class="schedule">{events.map((event) => <a href={event.link} class="event"><div class="event__date"><strong>{day(event.date)}</strong><span>{weekday(event.date)}</span></div><Badge tone="teal">{event.type}</Badge><div class="event__title"><strong>{event.title}</strong><span>{event.location}</span></div><time datetime={event.date.toISOString()}>{time(event.date)}</time><b aria-hidden="true">↗</b></a>)}</div>
+</div></section>
+<style>
+  .schedule { border-top: 2px solid var(--ink); } .event { min-height: 92px; display: grid; grid-template-columns: 122px 100px 1fr 72px 28px; gap: 1rem; align-items: center; border-bottom: 1px solid #b8c7cb; transition: padding 180ms ease, background-color 180ms ease; }
+  .event__date { display: flex; gap: .55rem; align-items: center; white-space: nowrap; } .event__date strong { font-family: var(--display); font-size: 2rem; font-weight: 400; line-height: 1; } .event__date span, .event__title span { color: #63747a; font-size: .7rem; font-weight: 800; letter-spacing: .08em; }
+  .event__title { display: grid; } .event__title strong { font-size: 1rem; } time { font-weight: 900; font-variant-numeric: tabular-nums; } .event > b { color: var(--signal); font-size: 1.3rem; }
+  @media (hover: hover) { .event:hover { padding-inline: .75rem; background: white; } } @media (max-width: 620px) { .event { grid-template-columns: 90px 1fr 32px; gap: .7rem; padding: 1rem 0; } .event .badge, .event time { display: none; } }
+</style>

@@ -1,0 +1,15 @@
+---
+const links = [
+  { href: '#klub', label: 'Klub' }, { href: '#tymy', label: 'Týmy' }, { href: '#aktuality', label: 'Aktuality' },
+  { href: '#rozpis', label: 'Rozpis ledu' }, { href: '#kontakt', label: 'Kontakt' },
+];
+---
+<nav class="nav" aria-label="Hlavní navigace">
+  {links.map((link) => <a href={link.href}>{link.label}</a>)}
+</nav>
+<style>
+  .nav { display: flex; gap: clamp(1rem, 2vw, 2rem); align-items: center; }
+  .nav a { min-height: 44px; display: inline-flex; align-items: center; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .nav a:hover { color: var(--accent); }
+  @media (max-width: 760px) { .nav { display: none; } }
+</style>

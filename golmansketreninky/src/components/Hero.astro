@@ -1,0 +1,30 @@
+---
+import GoalieSilhouette from './GoalieSilhouette.astro';
+import HockeyDecorations from './HockeyDecorations.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props { event: CollectionEntry<'events'>; }
+const { event } = Astro.props;
+const date = new Intl.DateTimeFormat('cs-CZ', { day: 'numeric', month: 'numeric', year: 'numeric' }).format(event.data.date);
+const end = event.data.endDate ? new Intl.DateTimeFormat('cs-CZ', { day: 'numeric', month: 'numeric', year: 'numeric' }).format(event.data.endDate) : '';
+---
+<section id="top" class="hero">
+  <HockeyDecorations />
+  <GoalieSilhouette className="hero-ghost" />
+  <div class="hero-copy container">
+    <p class="eyebrow">Gólmanské tréninky</p>
+    <h1>TRÉNINK PRO GÓLMANY,<br />KTEŘÍ CHTĚJÍ BÝT<br /><em>O KROK NAPŘED.</em></h1>
+    <p class="hero-text">Specializované tréninky pro gólmany a gólmanky. Technika, hra, mentální odolnost — každý detail rozhoduje.</p>
+    <div class="hero-actions">
+      <a class="button button--blue" href="#treninky">Najít trénink <span>→</span></a>
+      <a class="button button--outline" href="#jak-to-funguje">Jak to funguje <span>→</span></a>
+    </div>
+  </div>
+  <div class="hero-image" role="img" aria-label="Hokejový gólman při zákroku"></div>
+  <article class="next-event container" aria-label="Nejbližší akce">
+    <div class="next-event__title"><span>Nejbližší akce</span><strong>{event.data.title}</strong></div>
+    <div><b>{date}–{end}</b><small>6 dní</small></div>
+    <div><b>{event.data.city}</b><small>{event.data.venue}</small></div>
+    <div><b>{event.data.status}</b><small>{event.data.capacity}</small></div>
+    <a class="button button--red" href="#registrace">Rezervovat místo <span>→</span></a>
+  </article>
+</section>

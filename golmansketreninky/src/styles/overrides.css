@@ -1,0 +1,19 @@
+/* Keeps the event highlight below the hero copy on every viewport. */
+.hero {
+  margin-bottom: 132px;
+  overflow: visible;
+}
+
+.next-event {
+  bottom: -110px;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    margin-bottom: 146px;
+  }
+
+  .next-event {
+    bottom: -122px;
+  }
+}

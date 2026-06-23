@@ -1,0 +1,85 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "public/uploads"
+public_folder: "/uploads"
+locale: "cs"
+collections:
+  - name: "news"
+    label: "Aktuality"
+    folder: "src/content/news"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Titulek", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime" }
+      - { label: "Perex", name: "excerpt", widget: "text" }
+      - { label: "Obrázek", name: "image", widget: "image", required: false }
+      - { label: "Kategorie", name: "category", widget: "string" }
+      - { label: "Publikováno", name: "published", widget: "boolean", default: false }
+      - { label: "Obsah", name: "body", widget: "markdown" }
+  - name: "teams"
+    label: "Týmy"
+    folder: "src/content/teams"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Název", name: "name", widget: "string" }
+      - { label: "Věková skupina", name: "ageGroup", widget: "string" }
+      - { label: "Popis", name: "description", widget: "text" }
+      - { label: "Obrázek", name: "image", widget: "image", required: false }
+      - { label: "Kontaktní osoba", name: "contactPerson", widget: "string" }
+      - { label: "Doplňující obsah", name: "body", widget: "markdown", required: false }
+  - name: "settings"
+    label: "Nastavení webu"
+    files:
+      - label: "Klubové údaje"
+        name: "settings"
+        file: "src/content/data/settings.yaml"
+        fields:
+          - { label: "Název klubu", name: "clubName", widget: "string" }
+          - { label: "E-mail", name: "contactEmail", widget: "string" }
+          - { label: "Adresa", name: "address", widget: "text" }
+          - label: "Sociální sítě"
+            name: "socialLinks"
+            widget: "object"
+            fields:
+              - { label: "Facebook", name: "facebook", widget: "string" }
+              - { label: "Instagram", name: "instagram", widget: "string" }
+      - label: "Partneři"
+        name: "partners"
+        file: "src/content/data/partners.yaml"
+        fields:
+          - label: "Partneři"
+            name: "partners"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Název", name: "name", widget: "string" }
+              - { label: "Text/logotyp", name: "logo", widget: "string" }
+              - { label: "Obrázkový logotyp", name: "image", widget: "image", required: false }
+              - { label: "Web", name: "website", widget: "string" }
+              - label: "Úroveň"
+                name: "tier"
+                widget: "select"
+                options: ["generalni", "hlavni", "partner"]
+      - label: "Události a rozpis"
+        name: "events"
+        file: "src/content/data/events.yaml"
+        fields:
+          - label: "Události"
+            name: "events"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Název", name: "title", widget: "string" }
+              - { label: "Datum a čas", name: "date", widget: "datetime" }
+              - { label: "Místo", name: "location", widget: "string" }
+              - { label: "Typ", name: "type", widget: "string" }
+              - { label: "Odkaz", name: "link", widget: "string" }

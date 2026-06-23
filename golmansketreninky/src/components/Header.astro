@@ -1,0 +1,22 @@
+---
+import { navigation } from '../data/site';
+---
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Altrichter Goalie Academy — úvod">
+    <img src="/images/logo.png" alt="Altrichter Goalie Academy" />
+  </a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+  <nav id="primary-navigation" aria-label="Hlavní navigace">
+    {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    <a class="button button--red nav-cta" href="#registrace">Vybrat termín <span>→</span></a>
+  </nav>
+</header>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#primary-navigation');
+  button?.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!open));
+    nav?.classList.toggle('is-open', !open);
+  });
+</script>

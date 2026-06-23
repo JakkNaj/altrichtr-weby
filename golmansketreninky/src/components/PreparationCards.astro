@@ -1,0 +1,10 @@
+---
+import { preparation } from '../data/site';
+import HockeyDecorations from './HockeyDecorations.astro';
+---
+<section id="pro-golmany" class="preparation section section--dark">
+  <HockeyDecorations variant="dark" />
+  <div class="container"><div class="section-heading"><h2>PŘIPRAV SE NA LED <i>//</i></h2></div>
+    <div class="preparation-grid">{preparation.map((card) => <article class="prep-card"><img src={card.image} alt="" loading="lazy" /><div><span class="prep-icon">{card.icon === 'calendar' ? '◷' : card.icon === 'pin' ? '⌖' : card.icon === 'check' ? '✓' : '◈'}</span><h3>{card.title}</h3><p>{card.text}</p><a href="#registrace" aria-label={`${card.title}: více informací`}>→</a></div></article>)}</div>
+  </div>
+</section>

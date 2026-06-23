@@ -1,0 +1,18 @@
+---
+// Astro bundles the CMS editor locally; Decap reads /admin/config.yml from public.
+---
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>HC Říčany · redakce</title>
+  </head>
+  <body>
+    <script>
+      import CMS from 'decap-cms-app';
+      CMS.init();
+    </script>
+  </body>
+</html>

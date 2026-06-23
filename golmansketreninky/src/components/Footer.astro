@@ -1,0 +1,4 @@
+---
+import { navigation, site } from '../data/site';
+---
+<footer class="site-footer"><div class="container footer-grid"><div><img src="/images/logo.png" alt="Altrichter Goalie Academy" /><p>Specializovaný hokejový trénink pro gólmany.</p></div><div><h3>Kontakt</h3><a href={`tel:${site.phone.replaceAll(' ', '')}`}>{site.phone}</a><a href={`mailto:${site.email}`}>{site.email}</a><p>{site.address}</p></div><div><h3>Rychlé odkazy</h3>{navigation.map((item) => <a href={item.href}>{item.label}</a>)}</div><div><h3>Sleduj nás</h3><div class="social"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a></div></div></div><div class="footer-bottom container">© 2026 Altrichter Goalie Academy. Návrh úvodní stránky.</div></footer>

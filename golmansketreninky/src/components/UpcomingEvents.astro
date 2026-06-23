@@ -1,0 +1,11 @@
+---
+import EventCard from './EventCard.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props { events: CollectionEntry<'events'>[]; }
+const { events } = Astro.props;
+---
+<section id="treninky" class="events section container">
+  <div class="section-heading section-heading--split"><h2>NEJBLIŽŠÍ TRÉNINKY <i>//</i></h2><a href="#registrace">Zobrazit všechny termíny →</a></div>
+  <div class="events-grid">{events.map((event) => <EventCard event={event} />)}</div>
+  <p class="demo-note">Termíny označené jako demo slouží pro vizualizaci budoucího kalendáře tréninků.</p>
+</section>

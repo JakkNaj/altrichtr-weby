@@ -1,0 +1,5 @@
+---
+interface Props { href: string; tone?: 'red' | 'dark'; }
+const { href, tone = 'red' } = Astro.props;
+---
+<a class:list={['button', `button--${tone}`]} href={href}><slot /></a>

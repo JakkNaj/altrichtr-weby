@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import QuickActions from '../components/home/QuickActions.astro';
+import NewsGrid from '../components/home/NewsGrid.astro';
+import Teams from '../components/home/Teams.astro';
+import Events from '../components/home/Events.astro';
+import Partners from '../components/home/Partners.astro';
+
+const [news, teams, events, partners, settings] = await Promise.all([
+  getCollection('news', ({ data }) => data.published), getCollection('teams'), getCollection('events'), getCollection('partners'), getCollection('settings'),
+]);
+const latestNews = news.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const siteSettings = settings[0].data;
+const eventItems = events[0].data;
+const partnerItems = partners[0].data;
+---
+<BaseLayout title="HC Říčany | Hokej patří do Říčan" description="Moderní hokejový klub pro malé i velké hráče v Říčanech." settings={siteSettings}>
+  <Hero /><QuickActions /><NewsGrid news={latestNews} /><Teams teams={teams} /><Events events={eventItems} /><Partners partners={partnerItems} />
+</BaseLayout>

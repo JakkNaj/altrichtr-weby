@@ -1,0 +1,54 @@
+---
+import Navigation from './Navigation.astro';
+---
+<header class="header" data-site-header>
+  <div class="container header__inner">
+    <a class="brand" href="#top" aria-label="HC Říčany — domů">
+      <img src="/images/brand/hc-ricany-logo.jpg" alt="HC Říčany" width="150" height="115" />
+      <span>HC ŘÍČANY</span>
+    </a>
+    <Navigation />
+    <a class="header__action" href="#nabor">Nábor</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+  </div>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobilní navigace" hidden>
+    <a href="#klub">Klub</a><a href="#tymy">Týmy</a><a href="#aktuality">Aktuality</a><a href="#rozpis">Rozpis ledu</a><a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.querySelector<HTMLElement>('#mobile-menu');
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+  button?.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!open));
+    if (menu) menu.hidden = open;
+  });
+  let previousY = window.scrollY;
+  let isTicking = false;
+  window.addEventListener('scroll', () => {
+    if (isTicking) return;
+    window.requestAnimationFrame(() => {
+      const currentY = window.scrollY;
+      header?.classList.toggle('is-scrolled', currentY > 12);
+      header?.classList.toggle('is-hidden', currentY > 110 && currentY > previousY);
+      previousY = currentY;
+      isTicking = false;
+    });
+    isTicking = true;
+  }, { passive: true });
+</script>
+<style>
+  .header { position: fixed; inset: 0 0 auto; z-index: 10; width: 100%; border-bottom: 1px solid rgba(255,255,255,.2); background: rgba(10,16,20,.88); backdrop-filter: blur(14px); transition: transform 220ms ease-out, background-color 180ms ease-out, border-color 180ms ease-out; }
+  .header.is-hidden { transform: translateY(-105%); }
+  .header.is-scrolled { border-color: rgba(24,187,194,.42); background: rgba(10,16,20,.96); }
+  .header__inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .brand { display: inline-flex; align-items: center; gap: .65rem; font-size: .9rem; font-weight: 900; letter-spacing: .06em; white-space: nowrap; }
+  .brand img { width: 52px; height: 46px; object-fit: contain; border-radius: 2px; background: white; }
+  .header__action { min-height: 40px; padding: .7rem .8rem; background: var(--accent); color: var(--ink); font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+  .menu-toggle { display: none; min-height: 44px; border: 0; background: transparent; color: white; font-weight: 800; text-transform: uppercase; }
+  .mobile-menu { padding: .75rem 1.25rem 1.25rem; background: var(--ink); border-top: 1px solid var(--line); }
+  .mobile-menu a { display: block; padding: .75rem; font-weight: 800; }
+  @media (max-width: 760px) { .brand span { display: none; } .header__action { display: none; } .menu-toggle { display: block; } }
+  @media (prefers-reduced-motion: reduce) { .header { transition: none; } }
+</style>

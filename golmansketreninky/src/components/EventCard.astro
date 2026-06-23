@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { event: CollectionEntry<'events'>; }
+const { event } = Astro.props;
+const date = event.data.date as Date;
+const day = new Intl.DateTimeFormat('cs-CZ', { day: '2-digit' }).format(date);
+const month = new Intl.DateTimeFormat('cs-CZ', { month: 'short' }).format(date).replace('.', '');
+---
+<article class="event-card">
+  <div class="event-date"><strong>{day}</strong><span>{month}</span><small>{date.getFullYear()}</small></div>
+  <div class="event-details">
+    <h3>{event.data.title}</h3>
+    <dl>
+      <div><dt>Čas</dt><dd>{event.data.time}</dd></div>
+      <div><dt>Místo</dt><dd>{event.data.city}</dd></div>
+      <div><dt>Typ</dt><dd>{event.data.type}</dd></div>
+      <div><dt>Kapacita</dt><dd>{event.data.capacity}</dd></div>
+    </dl>
+    <a class="button button--red" href="#registrace">Vybrat termín <span>→</span></a>
+  </div>
+</article>

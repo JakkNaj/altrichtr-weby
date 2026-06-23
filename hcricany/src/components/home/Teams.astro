@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHeading from '../ui/SectionHeading.astro';
+interface Props { teams: CollectionEntry<'teams'>[]; }
+const { teams } = Astro.props;
+---
+<section id="tymy" class="section teams"><div class="container"><div class="teams__heading"><SectionHeading title="Týmy" eyebrow="Jedna klubová rodina" href="#kontakt" linkLabel="Najít svůj tým" /><img class="teams__crest" src="/images/brand/hc-ricany-logo.jpg" alt="Znak HC Říčany" width="150" height="115" /></div>
+<div class="teams__grid">{teams.map((team, index) => <article class="team"><div class="team__image" style={`background-image:url(${team.data.image})`}></div><div class="team__info"><span>0{index + 1} · {team.data.ageGroup}</span><h3 class="display">{team.data.name}</h3><p>{team.data.description}</p><small>{team.data.contactPerson}</small></div></article>)}</div>
+</div></section>
+<style>
+  .teams { background: #111b20; } .teams__heading { position: relative; } .teams__heading :global(.section-heading) { margin-bottom: 2rem; } .teams__crest { position: absolute; left: clamp(10.5rem, 18vw, 15rem); bottom: 1.35rem; width: 82px; height: 63px; object-fit: contain; border-radius: 4px; background: white; box-shadow: 0 12px 30px rgba(0,0,0,.25); } .teams__grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .team { min-height: 445px; position: relative; overflow: hidden; border: 1px solid var(--line); background: #17262d; }
+  .team__image { position: absolute; inset: 0; background-position: center; background-size: cover; opacity: .4; filter: grayscale(.2); transition: transform 300ms ease, opacity 300ms ease; }
+  .team__info { position: absolute; inset: auto 0 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(7,13,16,.98) 38%); } .team__info span { color: var(--accent); font-size: .72rem; font-weight: 900; letter-spacing: .1em; }
+  h3 { margin: .35rem 0 .7rem; font-size: clamp(2.1rem, 3.6vw, 3.4rem); } .team__info p { max-width: 19rem; margin: 0 0 1rem; color: #d5e1e3; } small { color: #9bb2b8; font-size: .7rem; font-weight: 700; }
+  @media (hover: hover) { .team:hover .team__image { opacity: .62; transform: scale(1.04); } } @media (max-width: 800px) { .teams__crest { display: none; } .teams__grid { grid-template-columns: 1fr; } .team { min-height: 340px; } }
+</style>

@@ -1,0 +1,23 @@
+---
+interface Props { clubName: string; email: string; address: string; facebook: string; instagram: string; }
+const { clubName, email, address, facebook, instagram } = Astro.props;
+---
+<footer id="kontakt" class="footer">
+  <div class="container footer__grid">
+    <div><p class="eyebrow">Jsme v tom spolu</p><h2 class="display">Hokej<br/>patří do<br/><span>Říčan.</span></h2></div>
+    <div><h3>Kontakt</h3><a href={`mailto:${email}`}>{email}</a><p>{address}</p></div>
+    <div><h3>Sledujte nás</h3><a href={facebook}>Facebook</a><a href={instagram}>Instagram</a><a href="#nabor">Nábor do klubu</a></div>
+  </div>
+  <div class="container footer__partners" aria-label="Partneři HC Říčany"><span>Hlavní partneři</span><img class="footer__partner--color" src="/images/partners/mesto_ricany.png" alt="Město Říčany" /><img src="/images/partners/pojd_hrat_hokej.jpg" alt="Pojď hrát hokej" /><img src="/images/partners/cesky_hokej_piskani.png" alt="Pískej hokej" /></div>
+  <div class="container footer__bottom"><span>© {new Date().getFullYear()} {clubName}</span><span>Demo webu · Astro + lokální obsah</span></div>
+</footer>
+<style>
+  .footer { padding: 5rem 0 1.5rem; border-top: 4px solid var(--accent); background: #080d10; }
+  .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; }
+  h2 { margin: 0; font-size: clamp(3.25rem, 7vw, 6.5rem); } h2 span { color: var(--accent); } h3 { margin: .25rem 0 1rem; color: var(--accent); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; }
+  .footer a { display: block; width: fit-content; margin-bottom: .55rem; font-weight: 750; } .footer a:hover { color: var(--accent); }
+  .footer p { max-width: 22rem; color: var(--mist); }
+  .footer__bottom { display: flex; justify-content: space-between; gap: 1rem; margin-top: 4rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: #8aa0a7; font-size: .72rem; }
+  .footer__partners { display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem; margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); } .footer__partners span { color: #91abb0; font-size: .62rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; } .footer__partners img { width: 68px; height: 40px; object-fit: contain; filter: grayscale(1) brightness(1.7); } .footer__partners .footer__partner--color { filter: none; }
+  @media (max-width: 720px) { .footer__grid { grid-template-columns: 1fr; gap: 2rem; } .footer__bottom { flex-direction: column; } }
+</style>

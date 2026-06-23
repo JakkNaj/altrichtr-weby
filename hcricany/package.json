@@ -1,0 +1,24 @@
+{
+  "name": "hc-ricany-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "cms:proxy": "npx decap-server",
+    "cms:dev": "concurrently --kill-others-on-fail --names site,cms --prefix-colors cyan,magenta \"npm run dev\" \"npm run cms:proxy\"",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.3.0",
+    "astro": "^5.16.0",
+    "decap-cms-app": "^3.11.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "concurrently": "^9.2.1",
+    "typescript": "^5.7.0"
+  }
+}

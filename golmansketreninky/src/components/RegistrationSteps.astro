@@ -1,0 +1,4 @@
+---
+import { registrationSteps } from '../data/site';
+---
+<section id="jak-to-funguje" class="registration-steps section container"><div class="section-heading"><p class="eyebrow">JEDNODUCHÝ POSTUP</p><h2>JAK TO FUNGUJE <i>//</i></h2></div><div class="steps-grid">{registrationSteps.map(([number, title, text]) => <article><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>

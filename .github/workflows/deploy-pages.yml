@@ -1,0 +1,62 @@
+name: Deploy client previews to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            golmansketreninky/package-lock.json
+            hcricany/package-lock.json
+      - name: Build Gólmanské tréninky
+        working-directory: golmansketreninky
+        env:
+          ASTRO_BASE: /altrichtr-weby/golmansketreninky
+        run: |
+          npm ci
+          npm run build
+          node ../scripts/prepare-pages.mjs dist /altrichtr-weby/golmansketreninky
+      - name: Build HC Říčany
+        working-directory: hcricany
+        env:
+          ASTRO_BASE: /altrichtr-weby/hcricany
+        run: |
+          npm ci
+          npm run build
+          node ../scripts/prepare-pages.mjs dist /altrichtr-weby/hcricany
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p _site/golmansketreninky _site/hcricany
+          cp index.html _site/index.html
+          cp -R golmansketreninky/dist/. _site/golmansketreninky/
+          cp -R hcricany/dist/. _site/hcricany/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

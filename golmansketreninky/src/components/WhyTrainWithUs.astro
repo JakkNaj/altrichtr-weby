@@ -1,0 +1,7 @@
+---
+import { benefits } from '../data/site';
+---
+<section id="akademie" class="academy section container">
+  <div class="academy-copy"><p class="eyebrow">ALTRICHTER GOALIE ACADEMY</p><h2>TRÉNINK, KTERÝ<br />DÁVÁ HŘE ŘÁD.</h2><p>Brankářská pozice vyžaduje vlastní systém. V tréninku propojujeme pohyb, techniku a rozhodování tak, aby se jistota přenesla do zápasu.</p><div class="benefit-list">{benefits.map(([title, text], index) => <div><span>0{index + 1}</span><p><strong>{title}</strong>{text}</p></div>)}</div></div>
+  <figure class="academy-image"><img src="/images/training-3671.jpg" alt="Trenér pracuje s gólmanem na ledě" loading="lazy" /><figcaption>Individuální přístup v každém detailu.</figcaption></figure>
+</section>
