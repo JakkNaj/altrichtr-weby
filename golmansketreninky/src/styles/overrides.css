@@ -75,6 +75,10 @@
     margin-top: 10px;
   }
 
+  .training-types::after {
+    display: none;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
