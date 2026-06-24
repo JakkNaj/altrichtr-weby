@@ -49,6 +49,7 @@ import Navigation from './Navigation.astro';
   .menu-toggle { display: none; min-height: 44px; border: 0; background: transparent; color: white; font-weight: 800; text-transform: uppercase; }
   .mobile-menu { padding: .75rem 1.25rem 1.25rem; background: var(--ink); border-top: 1px solid var(--line); }
   .mobile-menu a { display: block; padding: .75rem; font-weight: 800; }
-  @media (max-width: 760px) { .brand span { display: none; } .header__action { display: none; } .menu-toggle { display: block; } }
+  /* The full navigation no longer fits reliably on portrait iPads. */
+  @media (max-width: 900px) { .brand span { display: none; } .header__action { display: none; } .menu-toggle { display: block; } }
   @media (prefers-reduced-motion: reduce) { .header { transition: none; } }
 </style>
