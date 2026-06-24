@@ -1,0 +1,2 @@
+Last manual GitHub Pages redeploy trigger: 2026-06-24T20:47:06Z
+Reason: redeploy both design previews after mobile layout fixes.
