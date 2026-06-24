@@ -1,5 +1,4 @@
 ---
-import GoalieSilhouette from './GoalieSilhouette.astro';
 import HockeyDecorations from './HockeyDecorations.astro';
 import type { CollectionEntry } from 'astro:content';
 interface Props { event: CollectionEntry<'events'>; }
@@ -9,7 +8,6 @@ const end = event.data.endDate ? new Intl.DateTimeFormat('cs-CZ', { day: 'numeri
 ---
 <section id="top" class="hero">
   <HockeyDecorations />
-  <GoalieSilhouette className="hero-ghost" />
   <div class="hero-copy container">
     <p class="eyebrow">Gólmanské tréninky</p>
     <h1>TRÉNINK PRO GÓLMANY,<br />KTEŘÍ CHTĚJÍ BÝT<br /><em>O KROK NAPŘED.</em></h1>
