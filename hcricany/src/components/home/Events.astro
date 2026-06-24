@@ -15,5 +15,45 @@ const time = (date: Date) => new Intl.DateTimeFormat('cs-CZ', { hour: '2-digit',
   .schedule { border-top: 2px solid var(--ink); } .event { min-height: 92px; display: grid; grid-template-columns: 122px 100px 1fr 72px 28px; gap: 1rem; align-items: center; border-bottom: 1px solid #b8c7cb; transition: padding 180ms ease, background-color 180ms ease; }
   .event__date { display: flex; gap: .55rem; align-items: center; white-space: nowrap; } .event__date strong { font-family: var(--display); font-size: 2rem; font-weight: 400; line-height: 1; } .event__date span, .event__title span { color: #63747a; font-size: .7rem; font-weight: 800; letter-spacing: .08em; }
   .event__title { display: grid; } .event__title strong { font-size: 1rem; } time { font-weight: 900; font-variant-numeric: tabular-nums; } .event > b { color: var(--signal); font-size: 1.3rem; }
-  @media (hover: hover) { .event:hover { padding-inline: .75rem; background: white; } } @media (max-width: 620px) { .event { grid-template-columns: 90px 1fr 32px; gap: .7rem; padding: 1rem 0; } .event .badge, .event time { display: none; } }
+  @media (hover: hover) { .event:hover { padding-inline: .75rem; background: white; } }
+  @media (max-width: 620px) {
+    .event {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: .75rem 1rem;
+      min-height: auto;
+      padding: 1.35rem 0;
+    }
+
+    .event__date {
+      grid-column: 1;
+    }
+
+    .event__title {
+      grid-column: 1 / -1;
+      min-width: 0;
+      padding-right: 2.25rem;
+    }
+
+    .event__title strong {
+      font-size: 1.08rem;
+      line-height: 1.1;
+    }
+
+    .event__title span {
+      display: block;
+      margin-top: .3rem;
+    }
+
+    .event :global(.badge),
+    .event time {
+      display: none;
+    }
+
+    .event > b {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: end;
+      justify-self: end;
+    }
+  }
 </style>
