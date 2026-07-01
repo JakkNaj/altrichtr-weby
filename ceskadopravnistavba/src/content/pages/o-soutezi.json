@@ -1,0 +1,66 @@
+{
+  "wpId": 20,
+  "title": "O soutěži",
+  "slug": "o-soutezi",
+  "path": "/o-soutezi/",
+  "modified": "2026-01-08T21:11:58",
+  "seoDescription": "Soutěž Česká dopravní stavba (dříve organizována pod názvem ČDS&T) má více než 20letou tradici a za dobu své existence významně přispěla k prezentaci",
+  "summary": "O soutěži Soutěž Česká dopravní stavba (dříve organizována pod názvem ČDS&T ) má více než 20letou tradici a za dobu své existence významně přispěla k prezentaci celého množství inovativních řešení v oblasti dopravního stavebnictví vedoucích k rozvoji a...",
+  "headings": [
+    "O soutěži",
+    "Hlavní cíle soutěže​",
+    "Profesionální prezentace oborů českého dopravního stavitelství a inženýrství, a to s ohledem na odbornou a politickou, ale i širokou veřejnost.",
+    "Podpora rozvoje moderního dopravního stavitelství, které vedle inovací a odborné expertízy dbá také na ekonomickou efektivitu a šetrnost k životnímu prostředí.",
+    "Podpora Dopravní politiky ČR, Iniciativy SMART CITY, Iniciativy PRŮMYSL 4.0 i Národní strategie bezpečnosti silničního provozu.",
+    "Podpora implementace metody BIM jako nástroje pro zefektivnění výstavby.",
+    "Studentská cena"
+  ],
+  "links": [
+    {
+      "label": "Svaz podnikatelů ve stavebnictví",
+      "url": "https://www.sps.cz/homepage/",
+      "type": "external"
+    },
+    {
+      "label": "Cena veřejnosti: dopravní stavbu roku 2024 - hlasování ukončeno",
+      "url": "https://ceskadopravnistavba.cz/hlasovani-verejnosti/",
+      "type": "internal"
+    },
+    {
+      "label": "Zjistit více",
+      "url": "https://ceskadopravnistavba.cz/studentska-cena/",
+      "type": "internal"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/16-straz-nad-nezarkou-1024x751.jpeg",
+      "alt": "",
+      "width": 1024,
+      "height": 751
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/06/STUDENTSKA-CENA.svg",
+      "alt": "STUDENTSKÁ CENA"
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/06/DOPRAVNI-TECHNOLOGIE-a-INOVACE.svg",
+      "alt": "DOPRAVNÍ TECHNOLOGIE a INOVACE"
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/06/DALNICNI-A-SILNICNI-DOPRAVNI-STAVBY.svg",
+      "alt": "DÁLNIČNÍ A SILNIČNÍ DOPRAVNÍ STAVBY"
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/06/METODA-BIM-V-DOPRAVNICH-STAVBACH.svg",
+      "alt": "METODA BIM V DOPRAVNÍCH STAVBÁCH"
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/rolls-of-architecture-blueprints-and-house-plans-2023-11-27-05-16-25-utc-874x1024.jpg",
+      "alt": "",
+      "width": 874,
+      "height": 1024
+    }
+  ],
+  "videos": []
+}

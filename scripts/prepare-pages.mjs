@@ -18,8 +18,7 @@ async function rewrite(directoryPath) {
 
     const source = await readFile(entryPath, 'utf8');
     const output = source
-      .replace(/(["'(])\/images\//g, `$1${basePath}/images/`)
-      .replace(/(["'(])\/uploads\//g, `$1${basePath}/uploads/`)
+      .replace(/(["'(])\/(?!\/|altrichtr-weby\/)/g, `$1${basePath}/`)
       .replace('href="/favicon.svg"', `href="${basePath}/favicon.svg"`);
 
     if (output !== source) await writeFile(entryPath, output);

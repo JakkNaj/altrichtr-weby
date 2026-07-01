@@ -26,6 +26,7 @@ jobs:
           cache-dependency-path: |
             golmansketreninky/package-lock.json
             hcricany/package-lock.json
+            ceskadopravnistavba/package-lock.json
       - name: Build Gólmanské tréninky
         working-directory: golmansketreninky
         env:
@@ -42,12 +43,21 @@ jobs:
           npm ci
           npm run build
           node ../scripts/prepare-pages.mjs dist /altrichtr-weby/hcricany
+      - name: Build Česká dopravní stavba
+        working-directory: ceskadopravnistavba
+        env:
+          ASTRO_BASE: /altrichtr-weby/ceskadopravnistavba
+        run: |
+          npm ci
+          npm run build
+          node ../scripts/prepare-pages.mjs dist /altrichtr-weby/ceskadopravnistavba
       - name: Assemble Pages artifact
         run: |
-          mkdir -p _site/golmansketreninky _site/hcricany
+          mkdir -p _site/golmansketreninky _site/hcricany _site/ceskadopravnistavba
           cp index.html _site/index.html
           cp -R golmansketreninky/dist/. _site/golmansketreninky/
           cp -R hcricany/dist/. _site/hcricany/
+          cp -R ceskadopravnistavba/dist/. _site/ceskadopravnistavba/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

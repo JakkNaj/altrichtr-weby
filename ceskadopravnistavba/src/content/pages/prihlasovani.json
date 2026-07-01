@@ -1,0 +1,57 @@
+{
+  "wpId": 417,
+  "title": "Přihlašování",
+  "slug": "prihlasovani",
+  "path": "/prihlasovani/",
+  "modified": "2026-06-11T15:02:19",
+  "seoDescription": "Přihlaste svůj projekt do soutěže Česká dopravní stavba! Nominovat lze dopravní stavby, jejich části i technologické inovace. Podmínky přihlašování i soutěžní kategorie naleznete na webu.",
+  "summary": "Kdo se může přihlásit? Do soutěže mohou být přihlášeny dopravní stavby, části dopravních staveb, samostatné objekty, technologie a inovace, které byly zkolaudovány nebo uvedeny do provozu na území ČR od 1. 1. 2024 do 31. 12. 2025, a projekty...",
+  "headings": [
+    "Kdo se může přihlásit?",
+    "Soutěžní kategorie",
+    "DOPRAVNÍ STAVBY OSTATNÍ",
+    "TECHNOLOGIE A INOVACE V DOPRAVĚ",
+    "DOPRAVNÍ STAVBY DÁLNIČNÍ",
+    "DOPRAVNÍ STAVBY VODNÍ A VODOHOSPODÁŘSKÉ",
+    "PROJEKTY DOPRAVNÍCH STAVEB",
+    "DOPRAVNÍ STAVBY SILNIČNÍ",
+    "DOPRAVNÍ STAVBY KOLEJOVÉ",
+    "STUDENTSKÁ CENA",
+    "Kritéria hodnocení",
+    "Hodnotící komise",
+    "Přihlašování",
+    "Přihlašování do 23. ročníku soutěže bylo ukončeno. Vyhlášení vítězných projektů proběhne 23. června 2026."
+  ],
+  "links": [
+    {
+      "label": "STUDENTSKÁ CENA",
+      "url": "/studentska-cena",
+      "type": "internal"
+    },
+    {
+      "label": "studentska-cena",
+      "url": "/studentska-cena",
+      "type": "internal"
+    },
+    {
+      "label": "Příhlášení do soutěže",
+      "url": "https://prihlaseni.ceskadopravnistavba.cz/",
+      "type": "form"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/06/high-speed-train-in-motion-on-the-railway-station-2024-02-14-15-14-27-utc-1-1024x627.jpg",
+      "alt": "",
+      "width": 1024,
+      "height": 627
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/06/Artboard-22.png",
+      "alt": "",
+      "width": 300,
+      "height": 313
+    }
+  ],
+  "videos": []
+}

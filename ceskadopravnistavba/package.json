@@ -1,0 +1,22 @@
+{
+  "name": "ceska-dopravni-stavba-navrh02",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/node": "^9.4.4",
+    "astro": "^5.13.8",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.15",
+    "playwright": "^1.61.1"
+  }
+}

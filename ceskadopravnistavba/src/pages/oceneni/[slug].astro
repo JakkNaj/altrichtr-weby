@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getProjectDescription, sortByTitle } from '@/lib/content';
+
+interface Props {
+  award: CollectionEntry<'awards'>;
+}
+
+export async function getStaticPaths() {
+  const awards = await getCollection('awards');
+
+  return awards.map((award) => ({
+    params: { slug: award.data.slug },
+    props: { award }
+  }));
+}
+
+const { award } = Astro.props;
+const projects = sortByTitle(await getCollection('projects')).filter(
+  (project) => project.data.awardIds.includes(award.data.wpId) || project.data.awards.includes(award.data.name)
+);
+---
+
+<BaseLayout title={award.data.name} description={`Kategorie ${award.data.name} v soutěži Česká dopravní stavba.`}>
+  <p><a href="/">Zpět na obsahový přehled</a></p>
+  <h1>{award.data.name}</h1>
+  <p>Počet položek v exportu: {award.data.count}</p>
+
+  <h2>Projekty v kategorii</h2>
+  {projects.length > 0 ? (
+    <ol>
+      {projects.map((project) => (
+        <li>
+          <a href={`/stavba/${project.data.slug}/`}>{project.data.title}</a>
+          {getProjectDescription(project) && <p>{getProjectDescription(project)}</p>}
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <p>V exportu nejsou k této kategorii přiřazené projekty.</p>
+  )}
+</BaseLayout>

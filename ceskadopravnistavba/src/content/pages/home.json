@@ -1,0 +1,95 @@
+{
+  "wpId": 1417,
+  "title": "Home",
+  "slug": "home",
+  "path": "/",
+  "modified": "2026-06-25T09:50:12",
+  "seoDescription": "Česká dopravní stavba je celostátní soutěží, která každoročně oceňuje nejlepší projekty dopravních staveb, technologie a inovace v oboru.",
+  "summary": "23. ročník soutěže ČESKÁ DOPRAVNÍ STAVBA & TECHNOLOGIE Známe vítězné projekty! Vítězné projekty za rok 2025 O soutěži Česká dopravní stavba je celostátní soutěží s více než 20letou tradicí, která každoročně oceňuje nejvýznamnější projekty dopravních staveb i...",
+  "headings": [
+    "ČESKÁ DOPRAVNÍ STAVBA & TECHNOLOGIE",
+    "O soutěži",
+    "Podívejte se na výsledky minulého ročníku",
+    "Soutěžní kategorie",
+    "DOPRAVNÍ STAVBY OSTATNÍ",
+    "STUDENTSKÁ CENA",
+    "DOPRAVNÍ STAVBY DÁLNIČNÍ",
+    "DOPRAVNÍ STAVBY VODNÍ A VODOHOSPODÁŘSKÉ",
+    "TECHNOLOGIE A INOVACE V DOPRAVĚ",
+    "DOPRAVNÍ STAVBY SILNIČNÍ",
+    "DOPRAVNÍ STAVBY KOLEJOVÉ",
+    "PROJEKTY DOPRAVNÍCH STAVEB",
+    "Přihlašování",
+    "Napsali o nás",
+    "Reportáž CNN Prima News​",
+    "Česká dopravní stavba 2024 zná své vítěze"
+  ],
+  "links": [
+    {
+      "label": "Vítězné projekty za rok 2025",
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2026/06/aktuality_cds_2025.pdf",
+      "type": "pdf"
+    },
+    {
+      "label": "Více o soutěži Více o soutěži",
+      "url": "https://ceskadopravnistavba.cz/o-soutezi/",
+      "type": "internal"
+    },
+    {
+      "label": "Vítězné projekty 22. ročníku ČDS za rok 2024",
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2025/07/ZZ_CDS_2024.pdf",
+      "type": "pdf"
+    },
+    {
+      "label": "Video z galavečera 22. ročníku",
+      "url": "https://youtu.be/VGD9fxj8cmI",
+      "type": "external"
+    },
+    {
+      "label": "STUDENTSKÁ CENA",
+      "url": "/studentska-cena",
+      "type": "internal"
+    },
+    {
+      "label": "studentska-cena",
+      "url": "/studentska-cena",
+      "type": "internal"
+    },
+    {
+      "label": "Příhlášení do soutěže",
+      "url": "https://prihlaseni.ceskadopravnistavba.cz/",
+      "type": "form"
+    },
+    {
+      "label": "ke zhlédnutí zde",
+      "url": "https://cnn.iprima.cz/ceska-dopravni-stavba-2024-zna-sve-viteze-bude-mezi-pristimi-i-expresni-zeleznice-mezi-prahou-a-strednimi-cechy-478653",
+      "type": "external"
+    },
+    {
+      "label": "k přečtení zde",
+      "url": "https://www.e15.cz/tiskove-zpravy/soutez-ceska-dopravni-stavba-a-technologie-zna-sve-viteze-nejvyssi-oceneni-ziskalo-sedm-vyznamnych-projektu-1425620https://www.e15.cz/tiskove-zpravy/soutez-ceska-dopravni-stavba-a-technologie-zna-sve-viteze-nejvyssi-oceneni-ziskalo-sedm-vyznamnych-projektu-1425620",
+      "type": "external"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/CDS_o_soutezi_1-1.png",
+      "alt": "",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2026/06/banner-final-3-scaled.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2025/05/CPN_LOGO_V1_rgb-768x269.png",
+      "alt": ""
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2025/04/e15_logo_barva-768x460.png",
+      "alt": ""
+    }
+  ],
+  "videos": []
+}

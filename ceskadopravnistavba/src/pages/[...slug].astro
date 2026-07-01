@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getProjectDescription, pathToRouteParam, sortByTitle, uniqueBy } from '@/lib/content';
+
+interface Props {
+  page: CollectionEntry<'pages'>;
+}
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+
+  return pages
+    .filter((page) => page.data.path !== '/')
+    .map((page) => ({
+      params: { slug: pathToRouteParam(page.data.path) },
+      props: { page }
+    }));
+}
+
+const { page } = Astro.props;
+const projects = page.data.slug === 'vitezne-projekty' ? sortByTitle(await getCollection('projects')) : [];
+const partners =
+  page.data.slug === 'partneri'
+    ? sortByTitle(uniqueBy(await getCollection('partners'), (partner) => partner.data.logo))
+    : [];
+const documents = page.data.links.length ? page.data.links : [];
+---
+
+<BaseLayout title={page.data.title} description={page.data.seoDescription}>
+  <article class="content-page">
+    <h1>{page.data.title}</h1>
+    {page.data.summary && <p>{page.data.summary}</p>}
+
+    {page.data.headings.length > 0 && (
+      <>
+        <h2>Nadpisy z původního obsahu</h2>
+        <ol>
+          {page.data.headings.map((heading) => <li>{heading}</li>)}
+        </ol>
+      </>
+    )}
+
+    {documents.length > 0 && (
+      <>
+        <h2>Odkazy</h2>
+        <ul>
+          {documents.map((link) => (
+            <li>
+              <a href={link.url}>{link.label}</a>
+              <span> ({link.type})</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    {page.data.images.length > 0 && (
+      <>
+        <h2>Obrazové zdroje</h2>
+        <ul>
+          {page.data.images.map((image) => (
+            <li>
+              <a href={image.url}>{image.url}</a>
+              {image.alt && <span> - {image.alt}</span>}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    {projects.length > 0 && (
+      <>
+        <h2>Projekty</h2>
+        <ol>
+          {projects.map((project) => (
+            <li>
+              <a href={`/stavba/${project.data.slug}/`}>{project.data.title}</a>
+              {project.data.awards.length > 0 && <p>{project.data.awards.join(', ')}</p>}
+              {getProjectDescription(project) && <p>{getProjectDescription(project)}</p>}
+            </li>
+          ))}
+        </ol>
+      </>
+    )}
+
+    {partners.length > 0 && (
+      <>
+        <h2>Partneři</h2>
+        <ul>
+          {partners.map((partner) => (
+            <li>
+              <img class="site-logo" src={partner.data.logo} alt={partner.data.name} />
+              {partner.data.url ? <a href={partner.data.url}>{partner.data.name}</a> : partner.data.name}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </article>
+</BaseLayout>

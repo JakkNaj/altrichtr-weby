@@ -1,0 +1,24 @@
+{
+  "wpId": 3,
+  "title": "GDPR",
+  "slug": "gdpr",
+  "path": "/gdpr/",
+  "modified": "2025-01-23T20:20:53",
+  "seoDescription": "",
+  "summary": "Zásady používání cookies Cookies, což jsou malá množství dat, která naše servery posílají vašemu počítači a která umožňují lepší využití našich serverů a přizpůsobení jejich obsahu vašim potřebám. Cookies používá téměř každá internetová stránka na světě....",
+  "headings": [],
+  "links": [
+    {
+      "label": "použít plugin poskytovaný společností Google",
+      "url": "https://tools.google.com/dlpage/gaoptout",
+      "type": "external"
+    },
+    {
+      "label": "smluvních podmínkách společnosti Google",
+      "url": "http://www.google.com/intl/cs/policies/privacy/partners/",
+      "type": "external"
+    }
+  ],
+  "images": [],
+  "videos": []
+}

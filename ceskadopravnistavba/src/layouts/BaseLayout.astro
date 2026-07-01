@@ -1,0 +1,140 @@
+---
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+import { brand } from '@/data/brand';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = brand.name, description = brand.description } = Astro.props;
+const fullTitle = title === brand.name ? title : `${title} | ${brand.name}`;
+
+const primaryNav = [
+  { label: 'O soutěži', href: '/o-soutezi/' },
+  { label: 'Přihlašování', href: '/prihlasovani/' },
+  { label: 'Vítězné projekty', href: '/vitezne-projekty/' },
+  { label: 'Studentská cena', href: '/studentska-cena/' },
+  { label: 'Kontakt', href: '/kontakt/' }
+];
+
+const footerNav = [
+  { label: 'O soutěži', href: '/o-soutezi/' },
+  { label: 'Vítězné projekty', href: '/vitezne-projekty/' },
+  { label: 'Studentská cena', href: '/studentska-cena/' },
+  { label: 'Partneři', href: '/partneri/' },
+  { label: 'Kontakt', href: '/kontakt/' }
+];
+
+const partners = await getCollection('partners');
+const footerPartnerOrder = [
+  '03-md-2026-300x169',
+  '01-sps-300x157',
+  '05-rsd-web24-300x128',
+  '06-css-logo-23-web-300x243',
+  '08-ckait-v-kopie-291x300',
+  '09-logo-praha'
+];
+
+const partnerAlt: Record<string, string> = {
+  '03-md-2026-300x169': 'Ministerstvo dopravy CR',
+  '01-sps-300x157': 'Svaz podnikatelu ve stavebnictvi',
+  '05-rsd-web24-300x128': 'Reditelstvi silnic a dalnic',
+  '06-css-logo-23-web-300x243': 'Sprava zeleznic',
+  '08-ckait-v-kopie-291x300': 'CKAIT',
+  '09-logo-praha': 'Hlavni mesto Praha'
+};
+
+const footerPartners = partners
+  .filter((partner) => footerPartnerOrder.includes(partner.id))
+  .sort((a, b) => footerPartnerOrder.indexOf(a.id) - footerPartnerOrder.indexOf(b.id));
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href={brand.favicon.url} />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-lockup" href="/" aria-label={brand.name}>
+          <img class="site-logo" src={brand.logo.url} alt={brand.logo.alt} />
+        </a>
+        <nav class="site-nav" aria-label="Hlavní navigace">
+          {primaryNav.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a class="button button--small" href="/prihlasovani/">Přihlásit stavbu</a>
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-kicker">Pod záštitou a ve spolupráci s</div>
+        <div class="partner-strip" aria-label="Partneři soutěže">
+          {
+            footerPartners.map((partner) => (
+              <span class="partner-logo">
+                <img src={partner.data.logo} alt={partnerAlt[partner.id] ?? partner.data.name} loading="lazy" />
+              </span>
+            ))
+          }
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-title">ČESKÁ DOPRAVNÍ STAVBA</div>
+            <div class="footer-subtitle">&amp; technologie</div>
+            <p>{brand.description}</p>
+          </div>
+          <div>
+            <div class="footer-heading">Kontakt</div>
+            <a class="footer-link" href="mailto:info@ceskadopravnistavba.cz">info@ceskadopravnistavba.cz</a>
+            <p>Přihlášky · Výherci<br />Studentská cena</p>
+          </div>
+          <div>
+            <div class="footer-heading">Adresa</div>
+            <p>
+              Svaz podnikatelů ve stavebnictví<br />
+              Revoluční 1082/8<br />
+              110 00 Praha 1 - Nové Město
+            </p>
+            <p class="footer-meta">IČ 01541641 · DIČ CZ01541641</p>
+          </div>
+          <div>
+            <div class="footer-heading">Web</div>
+            <nav class="footer-nav" aria-label="Navigace v patičce">
+              {footerNav.map((item) => <a href={item.href}>{item.label}</a>)}
+            </nav>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>© 2026 ČESKÁ DOPRAVNÍ STAVBA &amp; TECHNOLOGIE</div>
+          <div class="legal-links">
+            <a href="/gdpr/">GDPR</a>
+            <a href="/gdpr/">Cookies</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

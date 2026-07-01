@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getProjectDescription } from '@/lib/content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map((project) => ({
+    params: { slug: project.data.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+const description = getProjectDescription(project);
+---
+
+<BaseLayout title={project.data.title} description={description}>
+  <p><a href="/vitezne-projekty/">Zpět na vítězné projekty</a></p>
+  <h1>{project.data.title}</h1>
+
+  <dl>
+    <dt>Kategorie</dt>
+    <dd>{project.data.awards.length ? project.data.awards.join(', ') : 'Neuvedeno'}</dd>
+    <dt>Zdroj</dt>
+    <dd><a href={project.data.sourceUrl}>Původní záznam</a></dd>
+    <dt>Poslední změna</dt>
+    <dd>{project.data.modified}</dd>
+  </dl>
+
+  {project.data.image && (
+    <figure>
+      <img src={project.data.image.url} alt={project.data.image.alt || project.data.title} />
+      <figcaption>{project.data.image.alt || project.data.title}</figcaption>
+    </figure>
+  )}
+
+  <h2>Text projektu</h2>
+  <p>{description || 'Text projektu nebyl v exportu vyplněný.'}</p>
+
+  {project.data.gallery.length > 0 && (
+    <>
+      <h2>Galerie</h2>
+      <ul>
+        {project.data.gallery.map((image) => (
+          <li><a href={image.url}>{image.alt || image.url}</a></li>
+        ))}
+      </ul>
+    </>
+  )}
+
+  {project.data.links.length > 0 && (
+    <>
+      <h2>Odkazy</h2>
+      <ul>
+        {project.data.links.map((link) => (
+          <li><a href={link.url}>{link.label}</a></li>
+        ))}
+      </ul>
+    </>
+  )}
+</BaseLayout>

@@ -1,0 +1,97 @@
+{
+  "wpId": 1711,
+  "title": "Studentská cena",
+  "slug": "studentska-cena",
+  "path": "/studentska-cena/",
+  "modified": "2026-06-11T14:59:02",
+  "seoDescription": "Studentskou cenou České dopravní stavby oceňujeme nejlepší studentské práce z oboru dopravy a dopravního inženýrství. Přihlaste svou bakalářskou nebo diplomovou práci do soutěže i vy.",
+  "summary": "Nechceš nechat svou odbornou práci zastrčenou v šuplíku? Přihlas se do Studentské ceny České dopravní stavby. Studentská cena Soutěž o nejlepší ročníkovou, bakalářskou či diplomovou práci z oboru dopravy a dopravního inženýrství byla vypsána v rámci soutěže...",
+  "headings": [
+    "Nechceš nechat svou odbornou práci zastrčenou v šuplíku? Přihlas se do Studentské ceny České dopravní stavby.",
+    "Studentská cena",
+    "Přihlašování",
+    "Přihlašování do 23. ročníku soutěže bylo ukončeno. Vyhlášení vítězných projektů proběhne 23. června 2026.",
+    "Jak soutěž vnímají studenti?",
+    "Ve spolupráci s vysokými školami"
+  ],
+  "links": [
+    {
+      "label": "podmínky studentské soutěže",
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2026/01/cds_2025_student_podminky-kopie.pdf",
+      "type": "pdf"
+    },
+    {
+      "label": "Příhlášení do soutěže",
+      "url": "https://prihlaseni.ceskadopravnistavba.cz/",
+      "type": "form"
+    },
+    {
+      "label": "Vítězné práce Studentské ceny za minulý ročník soutěže",
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2025/07/ZZ_cds_student_2024.pdf",
+      "type": "pdf"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/cropped-image-of-man-with-pens-discussing-over-roa-2023-11-27-04-50-34-utc-1024x683.jpg",
+      "alt": "",
+      "width": 1024,
+      "height": 683
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/predani-1024x678.jpg",
+      "alt": "",
+      "width": 1024,
+      "height": 678
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/CVUT.png",
+      "alt": "",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/TUL.png",
+      "alt": "",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/Pardubice.png",
+      "alt": "",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/VSB.png",
+      "alt": "",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/plzen.png",
+      "alt": "",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/VUT.png",
+      "alt": "",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2024/07/Skoda.png",
+      "alt": "",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "url": "https://ceskadopravnistavba.cz/wp-content/uploads/2025/07/Screenshot-2025-07-01-at-15.37.38-scaled.png",
+      "alt": ""
+    }
+  ],
+  "videos": [
+    "https://ceskadopravnistavba.cz/wp-content/uploads/2025/07/studenti-full.mp4"
+  ]
+}
